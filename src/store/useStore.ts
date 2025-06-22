@@ -9,7 +9,7 @@ interface StoreState {
   removeFromCart: (productId: string, color: string) => void;
   updateQuantity: (productId: string, color: string, quantity: number) => void;
   clearCart: () => void;
-  placeOrder: (shippingAddress: any) => string;
+  placeOrder: (shippingAddress: any, paymentMethod: 'card' | 'cash_on_delivery') => string;
   getCartTotal: () => number;
   getCartItemsCount: () => number;
 }
@@ -67,7 +67,7 @@ export const useStore = create<StoreState>()(
       
       clearCart: () => set({ cart: [] }),
       
-      placeOrder: (shippingAddress) => {
+      placeOrder: (shippingAddress, paymentMethod = 'card') => {
         const orderId = `APL-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
         const orderDate = new Date().toISOString();
         const estimatedDelivery = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString();
@@ -80,6 +80,7 @@ export const useStore = create<StoreState>()(
           orderDate,
           estimatedDelivery,
           shippingAddress,
+          paymentMethod,
         };
         
         set((state) => ({

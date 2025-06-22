@@ -30,6 +30,7 @@ export interface Order {
   orderDate: string;
   estimatedDelivery: string;
   shippingAddress: ShippingAddress;
+  paymentMethod: 'card' | 'cash_on_delivery';
 }
 
 export interface ShippingAddress {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { CheckCircle, Package, Truck, Calendar } from 'lucide-react';
+import { CheckCircle, Package, Truck, Calendar, CreditCard, Banknote } from 'lucide-react';
 import { useStore } from '../store/useStore';
 
 const OrderConfirmationPage: React.FC = () => {
@@ -53,9 +53,11 @@ const OrderConfirmationPage: React.FC = () => {
           <p className="text-xl text-apple-gray-light mb-2">
             Thank you for your purchase
           </p>
-          <p className="text-lg text-apple-gray-light">
-            Order ID: <span className="font-medium text-apple-gray">{order.id}</span>
-          </p>
+          <div className="bg-white rounded-lg px-6 py-3 inline-block shadow-sm">
+            <p className="text-lg text-apple-gray">
+              Order ID: <span className="font-medium text-apple-blue font-mono">{order.id}</span>
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -112,17 +114,53 @@ const OrderConfirmationPage: React.FC = () => {
                 </h2>
               </div>
               <div className="space-y-2 text-apple-gray-light">
-                <p>{order.shippingAddress.firstName} {order.shippingAddress.lastName}</p>
+                <p className="font-medium text-apple-gray">{order.shippingAddress.firstName} {order.shippingAddress.lastName}</p>
                 <p>{order.shippingAddress.address}</p>
                 <p>{order.shippingAddress.city}, {order.shippingAddress.state} {order.shippingAddress.zipCode}</p>
                 <p>{order.shippingAddress.country}</p>
-                <p className="mt-4 text-sm">
-                  Email: {order.shippingAddress.email}
-                </p>
-                <p className="text-sm">
-                  Phone: {order.shippingAddress.phone}
-                </p>
+                <div className="pt-3 border-t border-gray-200 mt-4">
+                  <p className="text-sm">
+                    <span className="font-medium">Email:</span> {order.shippingAddress.email}
+                  </p>
+                  <p className="text-sm">
+                    <span className="font-medium">Phone:</span> {order.shippingAddress.phone}
+                  </p>
+                </div>
               </div>
+            </div>
+
+            {/* Payment Method */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="flex items-center space-x-3 mb-4">
+                {order.paymentMethod === 'card' ? (
+                  <CreditCard className="w-6 h-6 text-apple-blue" />
+                ) : (
+                  <Banknote className="w-6 h-6 text-apple-blue" />
+                )}
+                <h2 className="text-2xl font-sf-pro font-semibold text-apple-gray">
+                  Payment Method
+                </h2>
+              </div>
+              <div className="flex items-center space-x-3">
+                {order.paymentMethod === 'card' ? (
+                  <>
+                    <CreditCard className="w-5 h-5 text-apple-gray-light" />
+                    <span className="text-apple-gray">Credit/Debit Card</span>
+                  </>
+                ) : (
+                  <>
+                    <Banknote className="w-5 h-5 text-apple-gray-light" />
+                    <span className="text-apple-gray">Cash on Delivery</span>
+                  </>
+                )}
+              </div>
+              {order.paymentMethod === 'cash_on_delivery' && (
+                <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                  <p className="text-sm text-yellow-800">
+                    Please keep ${(order.total * 1.08).toFixed(2)} ready for payment upon delivery.
+                  </p>
+                </div>
+              )}
             </div>
           </motion.div>
 
@@ -171,7 +209,7 @@ const OrderConfirmationPage: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex justify-between text-apple-gray-light">
                   <span>Subtotal</span>
-                  <span>${order.total}</span>
+                  <span>${order.total.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-apple-gray-light">
                   <span>Shipping</span>
