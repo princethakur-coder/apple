@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
           <div className="flex items-center mb-4 lg:mb-0">
             <Apple className="w-4 h-4 text-apple-gray mr-2" />
             <p className="text-xs font-sf-pro text-apple-gray-light">
-              Copyright © 2024 Apple Inc. All rights reserved.
+              Copyright © 2025 Prince Thakur. All rights reserved.
             </p>
           </div>
 
