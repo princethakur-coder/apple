@@ -2,37 +2,15 @@ import { Product, HeroSection } from '../types/product';
 
 export const heroSections: HeroSection[] = [
   {
-    id: 'iphone-15-pro',
-    title: 'iPhone 15 Pro',
-    subtitle: 'Titanium. So strong. So light. So Pro.',
-    description: 'The most advanced iPhone ever, featuring the powerful A17 Pro chip and revolutionary titanium design.',
+    id: 'iphone-collection',
+    title: 'iPhone',
+    subtitle: 'The ultimate iPhone experience.',
+    description: 'Discover the complete iPhone lineup. From the powerful iPhone 15 Pro to the essential iPhone SE.',
     image: 'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     backgroundColor: '#000000',
     textColor: '#ffffff',
     ctaText: 'Learn more',
-    ctaLink: '/product/iphone-15-pro'
-  },
-  {
-    id: 'macbook-pro',
-    title: 'MacBook Pro',
-    subtitle: 'Mind-blowing. Head-turning.',
-    description: 'The most powerful MacBook Pro ever is here. With the blazing-fast M3 chip for demanding workflows.',
-    image: 'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    backgroundColor: '#1d1d1f',
-    textColor: '#ffffff',
-    ctaText: 'Learn more',
-    ctaLink: '/product/macbook-pro-14'
-  },
-  {
-    id: 'apple-watch-series-9',
-    title: 'Apple Watch Series 9',
-    subtitle: 'Smarter. Brighter. Mightier.',
-    description: 'The most advanced Apple Watch yet, with the new S9 chip and Double Tap gesture.',
-    image: 'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    backgroundColor: '#f5f5f7',
-    textColor: '#1d1d1f',
-    ctaText: 'Learn more',
-    ctaLink: '/product/apple-watch-series-9'
+    ctaLink: '/iphone'
   }
 ];
 
@@ -42,8 +20,8 @@ export const products: Product[] = [
     id: 'iphone-15-pro',
     name: 'iPhone 15 Pro',
     tagline: 'Titanium. So strong. So light. So Pro.',
-    price: 999,
-    originalPrice: 1099,
+    price: 134900,
+    originalPrice: 149900,
     image: 'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -69,7 +47,7 @@ export const products: Product[] = [
     id: 'iphone-15',
     name: 'iPhone 15',
     tagline: 'New camera. New design. Newphoria.',
-    price: 799,
+    price: 79900,
     image: 'https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -94,8 +72,8 @@ export const products: Product[] = [
     id: 'iphone-14',
     name: 'iPhone 14',
     tagline: 'Big and bigger.',
-    price: 699,
-    originalPrice: 799,
+    price: 69900,
+    originalPrice: 79900,
     image: 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -118,8 +96,8 @@ export const products: Product[] = [
     id: 'iphone-13',
     name: 'iPhone 13',
     tagline: 'Your new superpower.',
-    price: 599,
-    originalPrice: 699,
+    price: 59900,
+    originalPrice: 69900,
     image: 'https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -142,7 +120,7 @@ export const products: Product[] = [
     id: 'iphone-se',
     name: 'iPhone SE',
     tagline: 'Lots to love. Less to spend.',
-    price: 429,
+    price: 43900,
     image: 'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -167,7 +145,7 @@ export const products: Product[] = [
     id: 'macbook-pro-14',
     name: 'MacBook Pro 14"',
     tagline: 'Mind-blowing. Head-turning.',
-    price: 1999,
+    price: 199900,
     image: 'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -192,7 +170,7 @@ export const products: Product[] = [
     id: 'macbook-air-15',
     name: 'MacBook Air 15"',
     tagline: 'Impressively big. Impossibly thin.',
-    price: 1299,
+    price: 134900,
     image: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800'
@@ -216,8 +194,8 @@ export const products: Product[] = [
     id: 'macbook-air-13',
     name: 'MacBook Air 13"',
     tagline: 'Supercharged by M2.',
-    price: 1099,
-    originalPrice: 1199,
+    price: 114900,
+    originalPrice: 124900,
     image: 'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -240,7 +218,7 @@ export const products: Product[] = [
     id: 'imac-24',
     name: 'iMac 24"',
     tagline: 'Say hello.',
-    price: 1299,
+    price: 134900,
     image: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800'
@@ -259,36 +237,13 @@ export const products: Product[] = [
     rating: 4.6,
     reviews: 1789
   },
-  {
-    id: 'mac-studio',
-    name: 'Mac Studio',
-    tagline: 'Supercharged by M2 Max and M2 Ultra.',
-    price: 1999,
-    image: 'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    colors: ['Silver'],
-    category: 'mac',
-    description: 'Mac Studio. Outrageous performance. Extensive connectivity. Compact design.',
-    specifications: [
-      'M2 Max or M2 Ultra chip',
-      'Up to 192GB unified memory',
-      'Up to 8TB SSD storage',
-      'Extensive I/O including Thunderbolt 4',
-      'Wi-Fi 6E and Bluetooth 5.3'
-    ],
-    inStock: true,
-    rating: 4.8,
-    reviews: 654
-  },
 
   // iPad Products
   {
     id: 'ipad-pro-12',
     name: 'iPad Pro 12.9"',
     tagline: 'Supercharged by M2.',
-    price: 1099,
+    price: 112900,
     image: 'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -312,7 +267,7 @@ export const products: Product[] = [
     id: 'ipad-air',
     name: 'iPad Air',
     tagline: 'Light. Bright. Full of might.',
-    price: 599,
+    price: 59900,
     image: 'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -331,60 +286,13 @@ export const products: Product[] = [
     rating: 4.7,
     reviews: 2156
   },
-  {
-    id: 'ipad-10',
-    name: 'iPad',
-    tagline: 'Lovable. Drawable. Magical.',
-    price: 449,
-    originalPrice: 499,
-    image: 'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    colors: ['Blue', 'Pink', 'Yellow', 'Silver'],
-    category: 'ipad',
-    description: 'iPad. The colorful, all-screen iPad for the things you do every day.',
-    specifications: [
-      '10.9-inch Liquid Retina display',
-      'A14 Bionic chip',
-      'Up to 256GB storage',
-      'USB-C connector',
-      'Compatible with Apple Pencil (1st generation)'
-    ],
-    inStock: true,
-    rating: 4.5,
-    reviews: 3421
-  },
-  {
-    id: 'ipad-mini',
-    name: 'iPad mini',
-    tagline: 'Mega power. Mini size.',
-    price: 499,
-    image: 'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    colors: ['Space Gray', 'Pink', 'Purple', 'Starlight'],
-    category: 'ipad',
-    description: 'iPad mini. The full iPad experience in an ultraportable design.',
-    specifications: [
-      '8.3-inch Liquid Retina display',
-      'A15 Bionic chip',
-      'Up to 256GB storage',
-      'USB-C connector',
-      'Compatible with Apple Pencil (2nd generation)'
-    ],
-    inStock: true,
-    rating: 4.6,
-    reviews: 1876
-  },
 
   // Apple Watch Products
   {
     id: 'apple-watch-series-9',
     name: 'Apple Watch Series 9',
     tagline: 'Smarter. Brighter. Mightier.',
-    price: 399,
+    price: 41900,
     image: 'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -408,7 +316,7 @@ export const products: Product[] = [
     id: 'apple-watch-ultra-2',
     name: 'Apple Watch Ultra 2',
     tagline: 'Next-level adventure.',
-    price: 799,
+    price: 89900,
     image: 'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -428,37 +336,13 @@ export const products: Product[] = [
     rating: 4.9,
     reviews: 876
   },
-  {
-    id: 'apple-watch-se',
-    name: 'Apple Watch SE',
-    tagline: 'A great deal to love.',
-    price: 249,
-    originalPrice: 299,
-    image: 'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    colors: ['Midnight', 'Starlight', 'Silver'],
-    category: 'watch',
-    description: 'Apple Watch SE. All the essentials to help you monitor your fitness, keep connected, track your health, and stay safe.',
-    specifications: [
-      'Retina display',
-      'S8 SiP with 64-bit dual-core processor',
-      'Crash Detection',
-      'Water resistant to 50 meters',
-      'Family Setup'
-    ],
-    inStock: true,
-    rating: 4.6,
-    reviews: 1987
-  },
 
   // AirPods Products
   {
     id: 'airpods-pro-2',
     name: 'AirPods Pro (2nd generation)',
     tagline: 'Adaptive Audio. Now playing.',
-    price: 249,
+    price: 24900,
     image: 'https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -482,8 +366,8 @@ export const products: Product[] = [
     id: 'airpods-3',
     name: 'AirPods (3rd generation)',
     tagline: 'All-new design. Spatial Audio.',
-    price: 179,
-    originalPrice: 199,
+    price: 20900,
+    originalPrice: 22900,
     image: 'https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -502,28 +386,101 @@ export const products: Product[] = [
     rating: 4.6,
     reviews: 2134
   },
+
+  // TV & Home Products
   {
-    id: 'airpods-max',
-    name: 'AirPods Max',
-    tagline: 'Computational audio meets luxury.',
-    price: 549,
-    image: 'https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg?auto=compress&cs=tinysrgb&w=800',
+    id: 'apple-tv-4k',
+    name: 'Apple TV 4K',
+    tagline: 'The Apple experience you love. Now on the big screen.',
+    price: 14900,
+    image: 'https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&w=800'
     ],
-    colors: ['Space Gray', 'Silver', 'Sky Blue', 'Green', 'Pink'],
-    category: 'airpods',
-    description: 'AirPods Max. A perfect balance of exhilarating high-fidelity audio and the effortless magic of AirPods.',
+    colors: ['Black'],
+    category: 'tv-home',
+    description: 'Apple TV 4K. Brings the best shows, movies, sports, and live TV together with your favorite Apple devices and services.',
     specifications: [
-      'High-fidelity audio',
-      'Active Noise Cancellation',
-      'Personalized Spatial Audio',
-      'Up to 20 hours listening time',
-      'Premium materials'
+      'A15 Bionic chip',
+      '4K High Frame Rate HDR',
+      'Dolby Vision and Dolby Atmos',
+      'Siri Remote included',
+      'Wi-Fi 6 and Bluetooth 5.0'
     ],
     inStock: true,
     rating: 4.7,
     reviews: 1543
+  },
+  {
+    id: 'homepod',
+    name: 'HomePod',
+    tagline: 'Profound sound.',
+    price: 32900,
+    image: 'https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&w=800',
+    images: [
+      'https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
+    colors: ['White', 'Midnight'],
+    category: 'tv-home',
+    description: 'HomePod. Delivers stunning audio quality and the intelligence of Siri to create a whole new way to interact with music.',
+    specifications: [
+      'High-excursion woofer',
+      'Five tweeters',
+      'S7 chip',
+      'Spatial Audio',
+      'Siri built-in'
+    ],
+    inStock: true,
+    rating: 4.6,
+    reviews: 987
+  },
+
+  // Accessories
+  {
+    id: 'magic-keyboard',
+    name: 'Magic Keyboard',
+    tagline: 'Magic at your fingertips.',
+    price: 9900,
+    image: 'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800',
+    images: [
+      'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
+    colors: ['White', 'Black'],
+    category: 'accessories',
+    description: 'Magic Keyboard. An incredibly comfortable and precise typing experience.',
+    specifications: [
+      'Scissor mechanism',
+      'Lightning connector',
+      'Rechargeable battery',
+      'Bluetooth connectivity',
+      'Compatible with Mac and iPad'
+    ],
+    inStock: true,
+    rating: 4.5,
+    reviews: 2341
+  },
+  {
+    id: 'apple-pencil',
+    name: 'Apple Pencil (2nd generation)',
+    tagline: 'Dream it up. Jot it down.',
+    price: 12900,
+    image: 'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800',
+    images: [
+      'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
+    colors: ['White'],
+    category: 'accessories',
+    description: 'Apple Pencil (2nd generation). The tool that can turn the iPad into your notepad, canvas, or just about anything you need it to be.',
+    specifications: [
+      'Pixel-perfect precision',
+      'Tilt and pressure sensitivity',
+      'Magnetic attachment',
+      'Wireless charging',
+      'Double-tap to switch tools'
+    ],
+    inStock: true,
+    rating: 4.8,
+    reviews: 1876
   }
 ];
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle, Package, Truck, Calendar, CreditCard, Banknote } from 'lucide-react';
@@ -8,6 +8,19 @@ const OrderConfirmationPage: React.FC = () => {
   const { orderId } = useParams<{ orderId: string }>();
   const orders = useStore((state) => state.orders);
   const order = orders.find(o => o.id === orderId);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
 
   if (!order) {
     return (
@@ -98,7 +111,7 @@ const OrderConfirmationPage: React.FC = () => {
                       </p>
                     </div>
                     <span className="font-sf-pro font-medium text-apple-gray">
-                      ${item.product.price * item.quantity}
+                      {formatPrice(item.product.price * item.quantity)}
                     </span>
                   </div>
                 ))}
@@ -157,7 +170,7 @@ const OrderConfirmationPage: React.FC = () => {
               {order.paymentMethod === 'cash_on_delivery' && (
                 <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
                   <p className="text-sm text-yellow-800">
-                    Please keep ${(order.total * 1.08).toFixed(2)} ready for payment upon delivery.
+                    Please keep {formatPrice(order.total * 1.18)} ready for payment upon delivery.
                   </p>
                 </div>
               )}
@@ -209,19 +222,19 @@ const OrderConfirmationPage: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex justify-between text-apple-gray-light">
                   <span>Subtotal</span>
-                  <span>${order.total.toFixed(2)}</span>
+                  <span>{formatPrice(order.total)}</span>
                 </div>
                 <div className="flex justify-between text-apple-gray-light">
                   <span>Shipping</span>
                   <span>Free</span>
                 </div>
                 <div className="flex justify-between text-apple-gray-light">
-                  <span>Tax</span>
-                  <span>${(order.total * 0.08).toFixed(2)}</span>
+                  <span>Tax (18%)</span>
+                  <span>{formatPrice(order.total * 0.18)}</span>
                 </div>
                 <div className="flex justify-between text-xl font-sf-pro font-semibold text-apple-gray border-t border-gray-200 pt-3">
                   <span>Total</span>
-                  <span>${(order.total * 1.08).toFixed(2)}</span>
+                  <span>{formatPrice(order.total * 1.18)}</span>
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { HeroSection } from '../types/product';
 
@@ -69,21 +70,27 @@ const Hero: React.FC<HeroProps> = ({ hero, index }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
         >
-          <motion.a
-            href={hero.ctaLink}
-            className="bg-apple-blue hover:bg-apple-blue-dark text-white px-8 py-3 rounded-full text-sm font-sf-pro font-medium transition-all duration-300 hover:scale-105"
+          <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {hero.ctaText}
-          </motion.a>
-          <motion.a
-            href={hero.ctaLink}
-            className="text-apple-blue hover:text-apple-blue-dark text-sm font-sf-pro font-medium border-b border-apple-blue hover:border-apple-blue-dark transition-all duration-300"
+            <Link
+              to={hero.ctaLink}
+              className="bg-apple-blue hover:bg-apple-blue-dark text-white px-8 py-3 rounded-full text-sm font-sf-pro font-medium transition-all duration-300 inline-block"
+            >
+              {hero.ctaText}
+            </Link>
+          </motion.div>
+          <motion.div
             whileHover={{ y: -2 }}
           >
-            Buy →
-          </motion.a>
+            <Link
+              to={hero.ctaLink}
+              className="text-apple-blue hover:text-apple-blue-dark text-sm font-sf-pro font-medium border-b border-apple-blue hover:border-apple-blue-dark transition-all duration-300 inline-block"
+            >
+              Buy →
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
 

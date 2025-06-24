@@ -17,6 +17,7 @@ import EducationPage from './pages/EducationPage';
 import HealthcarePage from './pages/HealthcarePage';
 import ValuesPage from './pages/ValuePage';
 import AboutPage from './pages/AboutPage';
+import LegalPage from './pages/LegalPage';
 
 function App() {
   return (
@@ -101,6 +102,13 @@ function App() {
           <Route path="/ethics-and-compliance" element={<AboutPage about="ethics" />} />
           <Route path="/events" element={<AboutPage about="events" />} />
           <Route path="/contact-apple" element={<AboutPage about="contact" />} />
+          
+          {/* Legal Pages */}
+          <Route path="/privacy-policy" element={<LegalPage legal="privacy-policy" />} />
+          <Route path="/terms-of-use" element={<LegalPage legal="terms-of-use" />} />
+          <Route path="/sales-and-refunds" element={<LegalPage legal="sales-and-refunds" />} />
+          <Route path="/legal" element={<LegalPage legal="legal" />} />
+          <Route path="/sitemap" element={<LegalPage legal="sitemap" />} />
         </Route>
       </Routes>
     </Router>

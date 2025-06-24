@@ -104,15 +104,15 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center space-x-4 lg:space-x-6">
-            <a href="/privacy" className="text-xs font-sf-pro text-apple-gray-light hover:text-apple-blue transition-colors duration-200">
+            <a href="/privacy-policy" className="text-xs font-sf-pro text-apple-gray-light hover:text-apple-blue transition-colors duration-200">
               Privacy Policy
             </a>
             <span className="text-apple-gray-light">|</span>
-            <a href="/terms" className="text-xs font-sf-pro text-apple-gray-light hover:text-apple-blue transition-colors duration-200">
+            <a href="/terms-of-use" className="text-xs font-sf-pro text-apple-gray-light hover:text-apple-blue transition-colors duration-200">
               Terms of Use
             </a>
             <span className="text-apple-gray-light">|</span>
-            <a href="/sales-terms" className="text-xs font-sf-pro text-apple-gray-light hover:text-apple-blue transition-colors duration-200">
+            <a href="/sales-and-refunds" className="text-xs font-sf-pro text-apple-gray-light hover:text-apple-blue transition-colors duration-200">
               Sales and Refunds
             </a>
             <span className="text-apple-gray-light">|</span>
@@ -133,6 +133,9 @@ const Footer: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
+          <p className="text-xs font-sf-pro text-apple-gray-light">
+            India
+          </p>
         </motion.div>
       </div>
     </footer>

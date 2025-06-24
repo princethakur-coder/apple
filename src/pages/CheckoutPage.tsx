@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CreditCard, Lock, Truck, Banknote } from 'lucide-react';
@@ -19,8 +19,21 @@ const CheckoutPage: React.FC = () => {
     city: '',
     state: '',
     zipCode: '',
-    country: 'United States'
+    country: 'India'
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -175,7 +188,7 @@ const CheckoutPage: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-sf-pro font-medium text-apple-gray mb-2">
-                      ZIP Code
+                      PIN Code
                     </label>
                     <input
                       type="text"
@@ -197,6 +210,7 @@ const CheckoutPage: React.FC = () => {
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-apple-blue focus:border-transparent outline-none transition-all"
                     >
+                      <option value="India">India</option>
                       <option value="United States">United States</option>
                       <option value="Canada">Canada</option>
                       <option value="United Kingdom">United Kingdom</option>
@@ -336,7 +350,7 @@ const CheckoutPage: React.FC = () => {
                 whileHover={{ scale: isFormValid() && !isProcessing ? 1.02 : 1 }}
                 whileTap={{ scale: isFormValid() && !isProcessing ? 0.98 : 1 }}
               >
-                {isProcessing ? 'Processing...' : `Place Order - $${(getCartTotal() * 1.08).toFixed(2)}`}
+                {isProcessing ? 'Processing...' : `Place Order - ${formatPrice(getCartTotal() * 1.18)}`}
               </motion.button>
             </form>
           </motion.div>
@@ -371,7 +385,7 @@ const CheckoutPage: React.FC = () => {
                       </p>
                     </div>
                     <span className="font-sf-pro font-medium text-apple-gray">
-                      ${item.product.price * item.quantity}
+                      {formatPrice(item.product.price * item.quantity)}
                     </span>
                   </div>
                 ))}
@@ -380,19 +394,19 @@ const CheckoutPage: React.FC = () => {
               <div className="space-y-3 border-t border-gray-200 pt-4">
                 <div className="flex justify-between text-apple-gray-light">
                   <span>Subtotal</span>
-                  <span>${getCartTotal()}</span>
+                  <span>{formatPrice(getCartTotal())}</span>
                 </div>
                 <div className="flex justify-between text-apple-gray-light">
                   <span>Shipping</span>
                   <span>Free</span>
                 </div>
                 <div className="flex justify-between text-apple-gray-light">
-                  <span>Tax</span>
-                  <span>${(getCartTotal() * 0.08).toFixed(2)}</span>
+                  <span>Tax (18%)</span>
+                  <span>{formatPrice(getCartTotal() * 0.18)}</span>
                 </div>
                 <div className="flex justify-between text-xl font-sf-pro font-semibold text-apple-gray border-t border-gray-200 pt-3">
                   <span>Total</span>
-                  <span>${(getCartTotal() * 1.08).toFixed(2)}</span>
+                  <span>{formatPrice(getCartTotal() * 1.18)}</span>
                 </div>
               </div>
             </div>

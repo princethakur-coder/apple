@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
@@ -7,6 +7,19 @@ import { useStore } from '../store/useStore';
 const CartPage: React.FC = () => {
   const navigate = useNavigate();
   const { cart, updateQuantity, removeFromCart, getCartTotal } = useStore();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
 
   const handleCheckout = () => {
     navigate('/checkout');
@@ -87,7 +100,7 @@ const CartPage: React.FC = () => {
                       Color: {item.selectedColor}
                     </p>
                     <p className="text-lg font-sf-pro font-medium text-apple-gray">
-                      ${item.product.price}
+                      {formatPrice(item.product.price)}
                     </p>
                   </div>
 
@@ -142,7 +155,7 @@ const CartPage: React.FC = () => {
             <div className="space-y-4 mb-6">
               <div className="flex justify-between text-apple-gray-light">
                 <span>Subtotal</span>
-                <span>${getCartTotal()}</span>
+                <span>{formatPrice(getCartTotal())}</span>
               </div>
               <div className="flex justify-between text-apple-gray-light">
                 <span>Shipping</span>
@@ -150,12 +163,12 @@ const CartPage: React.FC = () => {
               </div>
               <div className="flex justify-between text-apple-gray-light">
                 <span>Tax</span>
-                <span>${(getCartTotal() * 0.08).toFixed(2)}</span>
+                <span>{formatPrice(getCartTotal() * 0.18)}</span>
               </div>
               <div className="border-t border-gray-200 pt-4">
                 <div className="flex justify-between text-xl font-sf-pro font-semibold text-apple-gray">
                   <span>Total</span>
-                  <span>${(getCartTotal() * 1.08).toFixed(2)}</span>
+                  <span>{formatPrice(getCartTotal() * 1.18)}</span>
                 </div>
               </div>
             </div>

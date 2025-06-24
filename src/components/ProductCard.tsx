@@ -10,6 +10,15 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
   return (
     <motion.div
       className="group cursor-pointer"
@@ -86,11 +95,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
                 <span className="text-lg font-sf-pro font-medium text-apple-gray">
-                  ${product.price}
+                  {formatPrice(product.price)}
                 </span>
                 {product.originalPrice && (
                   <span className="text-sm font-sf-pro text-apple-gray-light line-through">
-                    ${product.originalPrice}
+                    {formatPrice(product.originalPrice)}
                   </span>
                 )}
               </div>

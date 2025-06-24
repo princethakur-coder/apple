@@ -1,12 +1,17 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
 import { getProductsByCategory } from '../data/products';
 
 const CategoryPage: React.FC = () => {
-  const { category } = useParams<{ category: string }>();
+  const location = useLocation();
+  const category = location.pathname.slice(1); // Remove leading slash
   const products = getProductsByCategory(category || '');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [category]);
 
   const categoryTitles: { [key: string]: string } = {
     'store': 'Apple Store',

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { CartItem, Order, Product } from '../types/product';
+import { CartItem, Order, Product, ShippingAddress } from '../types/product';
 
 interface StoreState {
   cart: CartItem[];
@@ -9,7 +9,7 @@ interface StoreState {
   removeFromCart: (productId: string, color: string) => void;
   updateQuantity: (productId: string, color: string, quantity: number) => void;
   clearCart: () => void;
-  placeOrder: (shippingAddress: any, paymentMethod: 'card' | 'cash_on_delivery') => string;
+  placeOrder: (shippingAddress: ShippingAddress, paymentMethod: 'card' | 'cash_on_delivery') => string;
   getCartTotal: () => number;
   getCartItemsCount: () => number;
 }

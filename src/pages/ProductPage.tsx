@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Star, ShoppingCart, Heart, Share2, Truck, Shield, RotateCcw } from 'lucide-react';
@@ -14,11 +14,24 @@ const ProductPage: React.FC = () => {
   const [quantity, setQuantity] = useState(1);
   const addToCart = useStore((state) => state.addToCart);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (product && product.colors.length > 0) {
       setSelectedColor(product.colors[0]);
     }
   }, [product]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
 
   if (!product) {
     return (
@@ -129,11 +142,11 @@ const ProductPage: React.FC = () => {
               </p>
               <div className="flex items-center space-x-4 mb-4">
                 <span className="text-3xl font-sf-pro font-medium text-apple-gray">
-                  ${product.price}
+                  {formatPrice(product.price)}
                 </span>
                 {product.originalPrice && (
                   <span className="text-xl font-sf-pro text-apple-gray-light line-through">
-                    ${product.originalPrice}
+                    {formatPrice(product.originalPrice)}
                   </span>
                 )}
               </div>
@@ -273,7 +286,7 @@ const ProductPage: React.FC = () => {
             <div className="border-t border-gray-200 pt-6 space-y-4">
               <div className="flex items-center space-x-3 text-apple-gray-light">
                 <Truck className="w-5 h-5" />
-                <span>Free delivery on orders over $35</span>
+                <span>Free delivery on orders over ₹35,000</span>
               </div>
               <div className="flex items-center space-x-3 text-apple-gray-light">
                 <Shield className="w-5 h-5" />
