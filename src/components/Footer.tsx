@@ -133,9 +133,6 @@ const Footer: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <p className="text-xs font-sf-pro text-apple-gray-light">
-            India
-          </p>
         </motion.div>
       </div>
     </footer>
