@@ -22,11 +22,11 @@ export const products: Product[] = [
     tagline: 'Titanium. So strong. So light. So Pro.',
     price: 134900,
     originalPrice: 149900,
-    image: 'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/iPhone_15_Pro_Natural_Titanium_PDP_Image_Position-1__en-IN.jpg?v=1695435375&width=823',
     images: [
-      'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/iPhone_15_Pro_Natural_Titanium_PDP_Image_Position-1__en-IN.jpg?v=1695435375&width=823',
+      'https://iplanet.one/cdn/shop/files/iPhone_15_Pro_Natural_Titanium_PDP_Image_Position-1_alt__en-IN.jpg?v=1695435379&width=600',
+      'https://iplanet.one/cdn/shop/files/iPhone_15_Pro_Natural_Titanium_PDP_Image_Position-2__en-IN.jpg?v=1695435381&width=600'
     ],
     colors: ['Natural Titanium', 'Blue Titanium', 'White Titanium', 'Black Titanium'],
     category: 'iphone',
@@ -48,10 +48,10 @@ export const products: Product[] = [
     name: 'iPhone 15',
     tagline: 'New camera. New design. Newphoria.',
     price: 79900,
-    image: 'https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/iPhone_15_Blue_PDP_Image_Position-1__en-IN.jpg?v=1695427876&width=600',
     images: [
-      'https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/iPhone_15_Blue_PDP_Image_Position-1__en-IN.jpg?v=1695427876&width=600',
+      'https://iplanet.one/cdn/shop/files/iPhone_15_Blue_PDP_Image_Position-1_alt__en-IN.jpg?v=1695427879&width=600'
     ],
     colors: ['Pink', 'Yellow', 'Green', 'Blue', 'Black'],
     category: 'iphone',
@@ -74,9 +74,9 @@ export const products: Product[] = [
     tagline: 'Big and bigger.',
     price: 69900,
     originalPrice: 79900,
-    image: 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/iPhone_14_Blue_PDP_Image_Position-1A__WWEN.jpg?v=1691142210&width=600',
     images: [
-      'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/iPhone_14_Blue_PDP_Image_Position-1A__WWEN.jpg?v=1691142210&width=600'
     ],
     colors: ['Blue', 'Purple', 'Midnight', 'Starlight', 'Red'],
     category: 'iphone',
@@ -98,9 +98,9 @@ export const products: Product[] = [
     tagline: 'Your new superpower.',
     price: 59900,
     originalPrice: 69900,
-    image: 'https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/IMG-112075_550x_aa708f20-f7e8-4b9c-ab09-9fd55b1ba20f.webp?v=1716794122&width=600',
     images: [
-      'https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/IMG-112075_550x_aa708f20-f7e8-4b9c-ab09-9fd55b1ba20f.webp?v=1716794122&width=600'
     ],
     colors: ['Pink', 'Blue', 'Midnight', 'Starlight', 'Red'],
     category: 'iphone',
@@ -121,9 +121,9 @@ export const products: Product[] = [
     name: 'iPhone SE',
     tagline: 'Lots to love. Less to spend.',
     price: 43900,
-    image: 'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/iPhone_SE3_Starlight_PDP_Image_Position-1A__en-US_5eeddc15-3457-4154-ad71-fea2ea8bbd74.jpg?v=1691140077&width=600',
     images: [
-      'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/iPhone_SE3_Starlight_PDP_Image_Position-1A__en-US_5eeddc15-3457-4154-ad71-fea2ea8bbd74.jpg?v=1691140077&width=600'
     ],
     colors: ['Midnight', 'Starlight', 'Red'],
     category: 'iphone',
@@ -146,10 +146,10 @@ export const products: Product[] = [
     name: 'MacBook Pro 14"',
     tagline: 'Mind-blowing. Head-turning.',
     price: 199900,
-    image: 'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/MacBook_Pro_16-inch_M4_Pro_or_Max_chip_Silver_PDP_Image_Position_1__en-IN_1605f002-f82c-4fcb-a21e-b6657e2afe5a.jpg?v=1730312503&width=600',
     images: [
-      'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/MacBook_Pro_16-inch_M4_Pro_or_Max_chip_Silver_PDP_Image_Position_1__en-IN_1605f002-f82c-4fcb-a21e-b6657e2afe5a.jpg?v=1730312503&width=600',
+      'https://iplanet.one/cdn/shop/files/MacBook_Pro_16-inch_M4_Pro_or_Max_chip_Silver_PDP_Image_Position_2__en-IN_a8c9b4a7-c5b8-4b8f-b01e-0633c7f4b086.jpg?v=1730312505&width=600'
     ],
     colors: ['Space Gray', 'Silver'],
     category: 'mac',
@@ -171,9 +171,9 @@ export const products: Product[] = [
     name: 'MacBook Air 15"',
     tagline: 'Impressively big. Impossibly thin.',
     price: 134900,
-    image: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/IMG-16739618_3a74f24c-0012-4e0e-bc5f-28e40a74369d.jpg?v=1741187921&width=600',
     images: [
-      'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/IMG-16739618_3a74f24c-0012-4e0e-bc5f-28e40a74369d.jpg?v=1741187921&width=600'
     ],
     colors: ['Midnight', 'Starlight', 'Space Gray', 'Silver'],
     category: 'mac',
@@ -196,9 +196,9 @@ export const products: Product[] = [
     tagline: 'Supercharged by M2.',
     price: 114900,
     originalPrice: 124900,
-    image: 'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/r1620_Space_Gray_PDP_Image_Position-1_Avail__en-IN.jpg?v=1691143498&width=600',
     images: [
-      'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/r1620_Space_Gray_PDP_Image_Position-1_Avail__en-IN.jpg?v=1691143498&width=600'
     ],
     colors: ['Midnight', 'Starlight', 'Space Gray', 'Silver'],
     category: 'mac',
@@ -219,9 +219,9 @@ export const products: Product[] = [
     name: 'iMac 24"',
     tagline: 'Say hello.',
     price: 134900,
-    image: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/r1620_Space_Gray_PDP_Image_Position-1_Avail__en-IN.jpg?v=1691143498&width=600',
     images: [
-      'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/r1620_Space_Gray_PDP_Image_Position-1_Avail__en-IN.jpg?v=1691143498&width=600'
     ],
     colors: ['Blue', 'Green', 'Pink', 'Silver', 'Yellow', 'Orange', 'Purple'],
     category: 'mac',
@@ -244,9 +244,9 @@ export const products: Product[] = [
     name: 'iPad Pro 12.9"',
     tagline: 'Supercharged by M2.',
     price: 112900,
-    image: 'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/iPad_Pro_13_M4_Cellular_Space_Black_PDP_Image_Position_1b__en-IN.jpg?v=1716472181&width=600',
     images: [
-      'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/iPad_Pro_13_M4_Cellular_Space_Black_PDP_Image_Position_1b__en-IN.jpg?v=1716472181&width=600'
     ],
     colors: ['Space Gray', 'Silver'],
     category: 'ipad',
@@ -268,9 +268,9 @@ export const products: Product[] = [
     name: 'iPad Air',
     tagline: 'Light. Bright. Full of might.',
     price: 59900,
-    image: 'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/iPad_mini_WiFi_Purple_PDP_Image_Position_2__en-IN.jpg?v=1729009226&width=600',
     images: [
-      'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/iPad_mini_WiFi_Purple_PDP_Image_Position_2__en-IN.jpg?v=1729009226&width=600'
     ],
     colors: ['Space Gray', 'Pink', 'Purple', 'Blue', 'Starlight'],
     category: 'ipad',
@@ -290,12 +290,12 @@ export const products: Product[] = [
   // Apple Watch Products
   {
     id: 'apple-watch-series-9',
-    name: 'Apple Watch Series 9',
+    name: 'Apple Watch Ultra 2',
     tagline: 'Smarter. Brighter. Mightier.',
-    price: 41900,
-    image: 'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800',
+    price: 85402,
+    image: 'https://iplanet.one/cdn/shop/files/Apple_Watch_Series_10_42mm_LTE_Jet_Black_Aluminium_Sport_Loop_Ink_PDP_Image_Position_1__en-IN_62f53a32-7f73-42ec-94bc-20ff6d2d4f92.jpg?v=1727254768&width=600',
     images: [
-      'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/Apple_Watch_Series_10_42mm_LTE_Jet_Black_Aluminium_Sport_Loop_Ink_PDP_Image_Position_1__en-IN_62f53a32-7f73-42ec-94bc-20ff6d2d4f92.jpg?v=1727254768&width=600'
     ],
     colors: ['Pink', 'Midnight', 'Starlight', 'Silver', 'Red'],
     category: 'watch',
@@ -317,9 +317,9 @@ export const products: Product[] = [
     name: 'Apple Watch Ultra 2',
     tagline: 'Next-level adventure.',
     price: 89900,
-    image: 'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/Apple_Watch_Series_10_42mm_LTE_Rose_Gold_Aluminium_Sport_Band_Light_Blush_PDP_Image_Position_1__en-IN_b4b3f38e-c161-495b-a63e-da083c840896.jpg?v=1727255044&width=600',
     images: [
-      'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/Apple_Watch_Series_10_42mm_LTE_Rose_Gold_Aluminium_Sport_Band_Light_Blush_PDP_Image_Position_1__en-IN_b4b3f38e-c161-495b-a63e-da083c840896.jpg?v=1727255044&width=600'
     ],
     colors: ['Natural'],
     category: 'watch',
@@ -343,9 +343,9 @@ export const products: Product[] = [
     name: 'AirPods Pro (2nd generation)',
     tagline: 'Adaptive Audio. Now playing.',
     price: 24900,
-    image: 'https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://www.apple.com/v/airpods-4/f/images/overview/bento-gallery/bento_case_open__63kccmu775u6_xsmall.jpg',
     images: [
-      'https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://www.apple.com/v/airpods-4/f/images/overview/bento-gallery/bento_case_open__63kccmu775u6_xsmall.jpg'
     ],
     colors: ['White'],
     category: 'airpods',
@@ -368,9 +368,9 @@ export const products: Product[] = [
     tagline: 'All-new design. Spatial Audio.',
     price: 20900,
     originalPrice: 22900,
-    image: 'https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/1_428ddb92-3f6c-4ec7-a4e5-afc16b176183.jpg?v=1722406941',
     images: [
-      'https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/1_428ddb92-3f6c-4ec7-a4e5-afc16b176183.jpg?v=1722406941'
     ],
     colors: ['White'],
     category: 'airpods',
@@ -393,9 +393,9 @@ export const products: Product[] = [
     name: 'Apple TV 4K',
     tagline: 'The Apple experience you love. Now on the big screen.',
     price: 14900,
-    image: 'https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/r1588_PDP_Image_Avail_Position-1__en-IN_73f8cd0d-e732-4fe3-b948-39bdf5c5cf3f_550x.jpg?v=1691163639',
     images: [
-      'https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/r1588_PDP_Image_Avail_Position-1__en-IN_73f8cd0d-e732-4fe3-b948-39bdf5c5cf3f_550x.jpg?v=1691163639'
     ],
     colors: ['Black'],
     category: 'tv-home',
@@ -416,9 +416,9 @@ export const products: Product[] = [
     name: 'HomePod',
     tagline: 'Profound sound.',
     price: 32900,
-    image: 'https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/HomePod_mini_Blue_PDP_Image_Position-1__GBEN_550x.jpg?v=1691163778',
     images: [
-      'https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/HomePod_mini_Blue_PDP_Image_Position-1__GBEN_550x.jpg?v=1691163778'
     ],
     colors: ['White', 'Midnight'],
     category: 'tv-home',
@@ -438,12 +438,12 @@ export const products: Product[] = [
   // Accessories
   {
     id: 'magic-keyboard',
-    name: 'Magic Keyboard',
-    tagline: 'Magic at your fingertips.',
-    price: 9900,
-    image: 'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800',
+    name: 'AirTag',
+    tagline: 'Magic at your AirTag.',
+    price: 4900,
+    image: 'https://iplanet.one/cdn/shop/files/MX532.png?v=1691163551&width=600',
     images: [
-      'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/MX532.png?v=1691163551&width=600'
     ],
     colors: ['White', 'Black'],
     category: 'accessories',
@@ -464,9 +464,9 @@ export const products: Product[] = [
     name: 'Apple Pencil (2nd generation)',
     tagline: 'Dream it up. Jot it down.',
     price: 12900,
-    image: 'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://iplanet.one/cdn/shop/files/apple-pencil-usb-c_MUWA3.png?v=1697553378&width=600',
     images: [
-      'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://iplanet.one/cdn/shop/files/apple-pencil-usb-c_MUWA3.png?v=1697553378&width=600'
     ],
     colors: ['White'],
     category: 'accessories',
