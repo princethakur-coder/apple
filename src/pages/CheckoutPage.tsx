@@ -26,6 +26,13 @@ const CheckoutPage: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Check if cart is empty and redirect
+  useEffect(() => {
+    if (cart.length === 0) {
+      navigate('/cart', { replace: true });
+    }
+  }, [cart.length, navigate]);
+
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
@@ -45,23 +52,63 @@ const CheckoutPage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate form
+    if (!isFormValid()) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // Validate payment method specific fields
+    if (paymentMethod === 'card') {
+      // In a real app, you would validate card details here
+      // For demo purposes, we'll skip this validation
+    }
+
     setIsProcessing(true);
 
-    // Simulate processing time
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      // Simulate processing time
+      await new Promise(resolve => setTimeout(resolve, 1500));
 
-    const orderId = placeOrder(shippingAddress, paymentMethod);
-    setIsProcessing(false);
-    navigate(`/order-confirmation/${orderId}`);
+      // Place the order
+      const orderId = placeOrder(shippingAddress, paymentMethod);
+      
+      console.log('Order placed successfully with ID:', orderId);
+      
+      // Clear processing state
+      setIsProcessing(false);
+      
+      // Navigate to order confirmation page with replace to prevent back navigation
+      navigate(`/order-confirmation/${orderId}`, { 
+        replace: true,
+        state: { fromCheckout: true }
+      });
+      
+    } catch (error) {
+      console.error('Error placing order:', error);
+      setIsProcessing(false);
+      alert('There was an error placing your order. Please try again.');
+    }
   };
 
   const isFormValid = () => {
-    return Object.values(shippingAddress).every(value => value.trim() !== '');
+    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'address', 'city', 'state', 'zipCode'];
+    return requiredFields.every(field => {
+      const value = shippingAddress[field as keyof ShippingAddress];
+      return value && value.toString().trim() !== '';
+    });
   };
 
+  // Don't render if cart is empty (will redirect)
   if (cart.length === 0) {
-    navigate('/cart');
-    return null;
+    return (
+      <div className="min-h-screen bg-apple-gray-lighter flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-xl text-apple-gray-light">Redirecting to cart...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -97,7 +144,7 @@ const CheckoutPage: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-sf-pro font-medium text-apple-gray mb-2">
-                      First Name
+                      First Name *
                     </label>
                     <input
                       type="text"
@@ -110,7 +157,7 @@ const CheckoutPage: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-sf-pro font-medium text-apple-gray mb-2">
-                      Last Name
+                      Last Name *
                     </label>
                     <input
                       type="text"
@@ -123,7 +170,7 @@ const CheckoutPage: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-sf-pro font-medium text-apple-gray mb-2">
-                      Email
+                      Email *
                     </label>
                     <input
                       type="email"
@@ -136,7 +183,7 @@ const CheckoutPage: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-sf-pro font-medium text-apple-gray mb-2">
-                      Phone
+                      Phone *
                     </label>
                     <input
                       type="tel"
@@ -149,7 +196,7 @@ const CheckoutPage: React.FC = () => {
                   </div>
                   <div className="md:col-span-2">
                     <label className="block text-sm font-sf-pro font-medium text-apple-gray mb-2">
-                      Address
+                      Address *
                     </label>
                     <input
                       type="text"
@@ -162,7 +209,7 @@ const CheckoutPage: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-sf-pro font-medium text-apple-gray mb-2">
-                      City
+                      City *
                     </label>
                     <input
                       type="text"
@@ -175,7 +222,7 @@ const CheckoutPage: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-sf-pro font-medium text-apple-gray mb-2">
-                      State
+                      State *
                     </label>
                     <input
                       type="text"
@@ -188,7 +235,7 @@ const CheckoutPage: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-sf-pro font-medium text-apple-gray mb-2">
-                      PIN Code
+                      PIN Code *
                     </label>
                     <input
                       type="text"
@@ -201,7 +248,7 @@ const CheckoutPage: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-sf-pro font-medium text-apple-gray mb-2">
-                      Country
+                      Country *
                     </label>
                     <select
                       name="country"
@@ -282,7 +329,6 @@ const CheckoutPage: React.FC = () => {
                       <input
                         type="text"
                         placeholder="1234 5678 9012 3456"
-                        required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-apple-blue focus:border-transparent outline-none transition-all"
                       />
                     </div>
@@ -294,7 +340,6 @@ const CheckoutPage: React.FC = () => {
                         <input
                           type="text"
                           placeholder="MM/YY"
-                          required
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-apple-blue focus:border-transparent outline-none transition-all"
                         />
                       </div>
@@ -305,7 +350,6 @@ const CheckoutPage: React.FC = () => {
                         <input
                           type="text"
                           placeholder="123"
-                          required
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-apple-blue focus:border-transparent outline-none transition-all"
                         />
                       </div>
@@ -317,7 +361,6 @@ const CheckoutPage: React.FC = () => {
                       <input
                         type="text"
                         placeholder="John Doe"
-                        required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-apple-blue focus:border-transparent outline-none transition-all"
                       />
                     </div>
@@ -331,12 +374,15 @@ const CheckoutPage: React.FC = () => {
                 {/* Cash on Delivery Info */}
                 {paymentMethod === 'cash_on_delivery' && (
                   <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                    <div className="flex items-center space-x-2 text-yellow-800">
+                    <div className="flex items-center space-x-2 text-yellow-800 mb-2">
                       <Banknote className="w-5 h-5" />
                       <span className="font-sf-pro font-medium">Cash on Delivery</span>
                     </div>
-                    <p className="text-sm text-yellow-700 mt-2">
-                      You will pay in cash when your order is delivered to your address. Please keep the exact amount ready.
+                    <p className="text-sm text-yellow-700 mb-2">
+                      You will pay <strong>{formatPrice(getCartTotal() * 1.18)}</strong> in cash when your order is delivered to your address.
+                    </p>
+                    <p className="text-sm text-yellow-700">
+                      Please keep the exact amount ready for a smooth delivery experience.
                     </p>
                   </div>
                 )}
@@ -350,7 +396,14 @@ const CheckoutPage: React.FC = () => {
                 whileHover={{ scale: isFormValid() && !isProcessing ? 1.02 : 1 }}
                 whileTap={{ scale: isFormValid() && !isProcessing ? 0.98 : 1 }}
               >
-                {isProcessing ? 'Processing...' : `Place Order - ${formatPrice(getCartTotal() * 1.18)}`}
+                {isProcessing ? (
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Processing Order...</span>
+                  </div>
+                ) : (
+                  `Place Order - ${formatPrice(getCartTotal() * 1.18)}`
+                )}
               </motion.button>
             </form>
           </motion.div>
@@ -398,10 +451,10 @@ const CheckoutPage: React.FC = () => {
                 </div>
                 <div className="flex justify-between text-apple-gray-light">
                   <span>Shipping</span>
-                  <span>Free</span>
+                  <span className="text-green-600">Free</span>
                 </div>
                 <div className="flex justify-between text-apple-gray-light">
-                  <span>Tax (18%)</span>
+                  <span>Tax (18% GST)</span>
                   <span>{formatPrice(getCartTotal() * 0.18)}</span>
                 </div>
                 <div className="flex justify-between text-xl font-sf-pro font-semibold text-apple-gray border-t border-gray-200 pt-3">

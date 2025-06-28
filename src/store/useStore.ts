@@ -10,6 +10,7 @@ interface StoreState {
   updateQuantity: (productId: string, color: string, quantity: number) => void;
   clearCart: () => void;
   placeOrder: (shippingAddress: ShippingAddress, paymentMethod: 'card' | 'cash_on_delivery') => string;
+  deleteOrder: (orderId: string) => void;
   getCartTotal: () => number;
   getCartItemsCount: () => number;
 }
@@ -68,27 +69,51 @@ export const useStore = create<StoreState>()(
       clearCart: () => set({ cart: [] }),
       
       placeOrder: (shippingAddress, paymentMethod = 'card') => {
+        const currentState = get();
+        const currentCart = [...currentState.cart]; // Create a copy
+        const total = currentState.getCartTotal();
+        
+        // Generate unique order ID
         const orderId = `APL-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
         const orderDate = new Date().toISOString();
-        const estimatedDelivery = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString();
+        const estimatedDelivery = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString('en-IN', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
         
+        // Create order object
         const order: Order = {
           id: orderId,
-          items: get().cart,
-          total: get().getCartTotal(),
+          items: currentCart,
+          total,
           status: 'processing',
           orderDate,
           estimatedDelivery,
-          shippingAddress,
+          shippingAddress: { ...shippingAddress },
           paymentMethod,
         };
         
+        // Update state: add order and clear cart
         set((state) => ({
           orders: [...state.orders, order],
-          cart: [],
+          cart: [], // Clear cart after successful order
         }));
         
+        console.log('Order created successfully:', {
+          orderId,
+          itemCount: currentCart.length,
+          total,
+          paymentMethod
+        });
+        
         return orderId;
+      },
+
+      deleteOrder: (orderId) => {
+        set((state) => ({
+          orders: state.orders.filter(order => order.id !== orderId),
+        }));
       },
       
       getCartTotal: () => {
@@ -101,6 +126,7 @@ export const useStore = create<StoreState>()(
     }),
     {
       name: 'apple-store',
+      version: 1,
     }
   )
 );

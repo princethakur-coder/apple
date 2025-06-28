@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ShoppingBag, Menu, X, Apple } from 'lucide-react';
+import { Search, ShoppingBag, Menu, X, Apple, Package } from 'lucide-react';
 import { useStore } from '../store/useStore';
 
 const Header: React.FC = () => {
@@ -11,6 +11,7 @@ const Header: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const cartItemsCount = useStore((state) => state.getCartItemsCount());
+  const ordersCount = useStore((state) => state.orders.length);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,6 +95,32 @@ const Header: React.FC = () => {
             >
               <Search className="w-4 h-4" />
             </motion.button>
+            
+            {/* Orders Icon */}
+            <motion.div
+              className="relative"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <Link
+                to="/orders"
+                className="text-apple-gray hover:text-apple-blue transition-colors duration-200"
+                title="View Orders"
+              >
+                <Package className="w-4 h-4" />
+                {ordersCount > 0 && (
+                  <motion.span
+                    className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  >
+                    {ordersCount}
+                  </motion.span>
+                )}
+              </Link>
+            </motion.div>
+            
             <motion.div
               className="relative"
               whileHover={{ scale: 1.1 }}
@@ -155,6 +182,19 @@ const Header: React.FC = () => {
                   </Link>
                 </motion.div>
               ))}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
+              >
+                <Link
+                  to="/orders"
+                  className="block text-sm text-apple-gray hover:text-apple-blue transition-colors duration-200 font-sf-pro"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  My Orders ({ordersCount})
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}
