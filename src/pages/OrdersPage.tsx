@@ -89,7 +89,7 @@ const OrdersPage: React.FC = () => {
                 {/* Delete Button */}
                 <motion.button
                   onClick={() => setDeleteConfirm(order.id)}
-                  className="absolute top-4 right-4 p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-full transition-all duration-200"
+                  className="absolute top-4 right-4 p-2 text-black hover:text-red-700 hover:bg-red-50 rounded-full transition-all duration-200"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   title="Delete Order"
