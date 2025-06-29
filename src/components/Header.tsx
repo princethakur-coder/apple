@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ShoppingBag, Menu, X, Apple, Package } from 'lucide-react';
+import { Search, ShoppingBag, Menu, X, Apple, Package, ChevronDown, ChevronRight } from 'lucide-react';
 import { useStore } from '../store/useStore';
 
 const Header: React.FC = () => {
@@ -9,6 +9,7 @@ const Header: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navigate = useNavigate();
   const cartItemsCount = useStore((state) => state.getCartItemsCount());
   const ordersCount = useStore((state) => state.orders.length);
@@ -35,6 +36,109 @@ const Header: React.FC = () => {
     { name: 'Support', path: '/support' }
   ];
 
+  const mobileMenuSections = [
+    {
+      title: 'Shop and Learn',
+      items: [
+        { name: 'Store', path: '/store' },
+        { name: 'Mac', path: '/mac' },
+        { name: 'iPad', path: '/ipad' },
+        { name: 'iPhone', path: '/iphone' },
+        { name: 'Watch', path: '/watch' },
+        { name: 'AirPods', path: '/airpods' },
+        { name: 'TV & Home', path: '/tv-home' },
+        { name: 'iPod touch', path: '/ipod-touch' },
+        { name: 'Accessories', path: '/accessories' },
+        { name: 'Gift Cards', path: '/gift-cards' }
+      ]
+    },
+    {
+      title: 'Services',
+      items: [
+        { name: 'Apple Music', path: '/apple-music' },
+        { name: 'Apple TV+', path: '/apple-tv-plus' },
+        { name: 'Apple Fitness+', path: '/apple-fitness-plus' },
+        { name: 'Apple News+', path: '/apple-news-plus' },
+        { name: 'Apple Arcade', path: '/apple-arcade' },
+        { name: 'iCloud', path: '/icloud' },
+        { name: 'Apple One', path: '/apple-one' },
+        { name: 'Apple Card', path: '/apple-card' },
+        { name: 'Apple Books', path: '/apple-books' },
+        { name: 'Apple Podcasts', path: '/apple-podcasts' }
+      ]
+    },
+    {
+      title: 'Account',
+      items: [
+        { name: 'Manage Your Apple ID', path: '/manage-your-apple-id' },
+        { name: 'Apple Store Account', path: '/apple-store-account' },
+        { name: 'iCloud.com', path: '/icloud-com' }
+      ]
+    },
+    {
+      title: 'Apple Store',
+      items: [
+        { name: 'Find a Store', path: '/find-a-store' },
+        { name: 'Genius Bar', path: '/genius-bar' },
+        { name: 'Today at Apple', path: '/today-at-apple' },
+        { name: 'Apple Camp', path: '/apple-camp' },
+        { name: 'Apple Store App', path: '/apple-store-app' },
+        { name: 'Refurbished and Clearance', path: '/refurbished-and-clearance' },
+        { name: 'Financing', path: '/financing' },
+        { name: 'Apple Trade In', path: '/apple-trade-in' },
+        { name: 'Order Status', path: '/order-status' },
+        { name: 'Shopping Help', path: '/shopping-help' }
+      ]
+    },
+    {
+      title: 'For Business',
+      items: [
+        { name: 'Apple and Business', path: '/apple-and-business' },
+        { name: 'Shop for Business', path: '/shop-for-business' }
+      ]
+    },
+    {
+      title: 'For Education',
+      items: [
+        { name: 'Apple and Education', path: '/apple-and-education' },
+        { name: 'Shop for K-12', path: '/shop-for-k-12' },
+        { name: 'Shop for College', path: '/shop-for-college' }
+      ]
+    },
+    {
+      title: 'For Healthcare',
+      items: [
+        { name: 'Apple in Healthcare', path: '/apple-in-healthcare' },
+        { name: 'Health on Apple Watch', path: '/health-on-apple-watch' },
+        { name: 'Health Records on iPhone', path: '/health-records-on-iphone' }
+      ]
+    },
+    {
+      title: 'Apple Values',
+      items: [
+        { name: 'Accessibility', path: '/accessibility' },
+        { name: 'Education', path: '/education' },
+        { name: 'Environment', path: '/environment' },
+        { name: 'Inclusion and Diversity', path: '/inclusion-and-diversity' },
+        { name: 'Privacy', path: '/privacy' },
+        { name: 'Racial Equity and Justice', path: '/racial-equity-and-justice' },
+        { name: 'Supplier Responsibility', path: '/supplier-responsibility' }
+      ]
+    },
+    {
+      title: 'About Apple',
+      items: [
+        { name: 'Newsroom', path: '/newsroom' },
+        { name: 'Apple Leadership', path: '/apple-leadership' },
+        { name: 'Career Opportunities', path: '/career-opportunities' },
+        { name: 'Investors', path: '/investors' },
+        { name: 'Ethics & Compliance', path: '/ethics-and-compliance' },
+        { name: 'Events', path: '/events' },
+        { name: 'Contact Apple', path: '/contact-apple' }
+      ]
+    }
+  ];
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -42,6 +146,16 @@ const Header: React.FC = () => {
       setIsSearchOpen(false);
       setSearchQuery('');
     }
+  };
+
+  const toggleDropdown = (sectionTitle: string) => {
+    setOpenDropdown(openDropdown === sectionTitle ? null : sectionTitle);
+  };
+
+  const handleMobileNavClick = (path: string) => {
+    setIsMenuOpen(false);
+    setOpenDropdown(null);
+    navigate(path);
   };
 
   return (
@@ -110,7 +224,7 @@ const Header: React.FC = () => {
                 <Package className="w-4 h-4" />
                 {ordersCount > 0 && (
                   <motion.span
-                    className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                    className="absolute -top-2 -right-2 bg-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
@@ -159,42 +273,83 @@ const Header: React.FC = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="lg:hidden bg-white border-t border-gray-200"
+            className="lg:hidden bg-white border-t border-gray-200 max-h-[80vh] overflow-y-auto"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="px-4 py-4 space-y-4">
-              {navItems.map((item, index) => (
+            <div className="px-4 py-4">
+              {mobileMenuSections.map((section, sectionIndex) => (
                 <motion.div
-                  key={item.name}
+                  key={section.title}
+                  className="mb-4"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  transition={{ duration: 0.3, delay: sectionIndex * 0.05 }}
                 >
-                  <Link
-                    to={item.path}
-                    className="block text-sm text-apple-gray hover:text-apple-blue transition-colors duration-200 font-sf-pro"
-                    onClick={() => setIsMenuOpen(false)}
+                  <motion.button
+                    onClick={() => toggleDropdown(section.title)}
+                    className="w-full flex items-center justify-between py-3 text-left border-b border-gray-100"
+                    whileTap={{ scale: 0.98 }}
                   >
-                    {item.name}
-                  </Link>
+                    <span className="text-lg font-sf-pro font-medium text-apple-gray">
+                      {section.title}
+                    </span>
+                    <motion.div
+                      animate={{ rotate: openDropdown === section.title ? 90 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronRight className="w-5 h-5 text-apple-gray-light" />
+                    </motion.div>
+                  </motion.button>
+                  
+                  <AnimatePresence>
+                    {openDropdown === section.title && (
+                      <motion.div
+                        className="mt-2 ml-4 space-y-2"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {section.items.map((item, itemIndex) => (
+                          <motion.button
+                            key={item.name}
+                            onClick={() => handleMobileNavClick(item.path)}
+                            className="block w-full text-left py-2 text-apple-gray-light hover:text-apple-blue transition-colors duration-200 font-sf-pro"
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.2, delay: itemIndex * 0.03 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            {item.name}
+                          </motion.button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               ))}
-              <motion.div
+              
+              {/* My Orders in Mobile Menu */}
+              <motion.button
+                onClick={() => handleMobileNavClick('/orders')}
+                className="w-full flex items-center justify-between py-3 text-left border-b border-gray-100"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
+                transition={{ duration: 0.3, delay: mobileMenuSections.length * 0.05 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Link
-                  to="/orders"
-                  className="block text-sm text-apple-gray hover:text-apple-blue transition-colors duration-200 font-sf-pro"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  My Orders ({ordersCount})
-                </Link>
-              </motion.div>
+                <span className="text-lg font-sf-pro font-medium text-apple-gray">
+                  My Orders
+                </span>
+                {ordersCount > 0 && (
+                  <span className="bg-green-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
+                    {ordersCount}
+                  </span>
+                )}
+              </motion.button>
             </div>
           </motion.div>
         )}
