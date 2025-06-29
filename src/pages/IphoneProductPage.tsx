@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ChevronDown, Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const IPhoneProductPage: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedModel, setSelectedModel] = useState('iPhone 15 Pro');
   const [selectedColor, setSelectedColor] = useState('Natural Titanium');
   const [selectedStorage, setSelectedStorage] = useState('128GB');
@@ -99,6 +101,32 @@ const IPhoneProductPage: React.FC = () => {
     return color?.image || colors[0].image;
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const handleBuyClick = () => {
+    scrollToTop();
+    setTimeout(() => {
+      navigate('/home');
+    }, 500); // Wait for scroll animation to complete
+  };
+
+  const handleLearnMoreClick = () => {
+    scrollToTop();
+    setTimeout(() => {
+      navigate('/home');
+    }, 500); // Wait for scroll animation to complete
+  };
+
+  const handleAddToCartClick = () => {
+    scrollToTop();
+    // Add to cart functionality can be added here
+  };
+
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
@@ -138,6 +166,7 @@ const IPhoneProductPage: React.FC = () => {
           </video>
           <div className="absolute inset-0 bg-black/40" />
         </div>
+
 
         {/* Video Controls */}
         <div className="absolute bottom-8 right-8 flex space-x-4 z-20">
@@ -185,7 +214,7 @@ const IPhoneProductPage: React.FC = () => {
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            iPhone 15 Pro. Forged in titanium and featuring the groundbreaking A17 Pro chip, a customizable Action Button, and the most powerful iPhone camera system ever.
+            iPhone 15 Pro. Forged in titanium and featuring the groundbreaking A18 Pro chip, a customizable Action Button, and the most powerful iPhone camera system ever.
           </motion.p>
 
           <motion.div
@@ -195,6 +224,7 @@ const IPhoneProductPage: React.FC = () => {
             transition={{ duration: 1, delay: 0.8 }}
           >
             <motion.button
+              onClick={handleBuyClick}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-sf-pro font-medium transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -202,6 +232,7 @@ const IPhoneProductPage: React.FC = () => {
               Buy
             </motion.button>
             <motion.button
+              onClick={handleLearnMoreClick}
               className="text-blue-400 hover:text-blue-300 text-lg font-sf-pro font-medium border-b border-blue-400 hover:border-blue-300 transition-all duration-300"
               whileHover={{ y: -2 }}
             >
@@ -452,6 +483,7 @@ const IPhoneProductPage: React.FC = () => {
             </div>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <motion.button
+                onClick={handleAddToCartClick}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-full text-lg font-sf-pro font-medium transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -459,6 +491,7 @@ const IPhoneProductPage: React.FC = () => {
                 Add to Cart - ₹1,34,900
               </motion.button>
               <motion.button
+                onClick={handleLearnMoreClick}
                 className="border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-12 py-4 rounded-full text-lg font-sf-pro font-medium transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

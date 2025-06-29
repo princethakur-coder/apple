@@ -25,7 +25,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route index element={<IPhoneProductPage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/store" element={<CategoryPage />} />
           <Route path="/mac" element={<CategoryPage />} />
           <Route path="/ipad" element={<CategoryPage />} />
