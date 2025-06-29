@@ -18,6 +18,7 @@ import HealthcarePage from './pages/HealthcarePage';
 import ValuesPage from './pages/ValuePage';
 import AboutPage from './pages/AboutPage';
 import LegalPage from './pages/LegalPage';
+import IPhoneProductPage from './pages/IphoneProductPage';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/mac" element={<CategoryPage />} />
           <Route path="/ipad" element={<CategoryPage />} />
           <Route path="/iphone" element={<CategoryPage />} />
+          <Route path="/iphone-product" element={<IPhoneProductPage />} />
           <Route path="/watch" element={<CategoryPage />} />
           <Route path="/airpods" element={<CategoryPage />} />
           <Route path="/tv-home" element={<CategoryPage />} />

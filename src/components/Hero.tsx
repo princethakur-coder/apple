@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ hero, index }) => {
             whileTap={{ scale: 0.95 }}
           >
             <Link
-              to={hero.ctaLink}
+              to="/iphone-product"
               className="bg-apple-blue hover:bg-apple-blue-dark text-white px-8 py-3 rounded-full text-sm font-sf-pro font-medium transition-all duration-300 inline-block"
             >
               {hero.ctaText}
@@ -85,7 +85,7 @@ const Hero: React.FC<HeroProps> = ({ hero, index }) => {
             whileHover={{ y: -2 }}
           >
             <Link
-              to={hero.ctaLink}
+              to="/iphone-product"
               className="text-apple-blue hover:text-apple-blue-dark text-sm font-sf-pro font-medium border-b border-apple-blue hover:border-apple-blue-dark transition-all duration-300 inline-block"
             >
               Buy →
